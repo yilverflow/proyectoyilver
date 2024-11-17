@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Requerimientos de Compra</title>
+    <link rel="stylesheet" href="muebles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Muebles de Oficina</h1>
+      <img src="imagen de oficina para header.jpg" alt="Imagen de oficina" />
+    </header>
+
+    <main>
+      <section>
+        <h2>Requerimientos de Compra</h2>
+
+        <section id="formulario-compra">
+          <h2>Iniciar Compra</h2>
+          <form id="compra-form">
+            <label for="nombre">Nombre del Producto:</label>
+            <input type="text" id="nombre" name="nombre" required />
+
+            <label for="precio">Precio (COP):</label>
+            <input type="text" id="precio" name="precio" required />
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required />
+
+            <label for="direccion">Dirección de Envío:</label>
+            <input type="text" id="direccion" name="direccion" required />
+
+            <fieldset>
+              <legend>Tipo de Entrega:</legend>
+              <label for="entrega-estandar">
+                <input
+                  type="radio"
+                  id="entrega-estandar"
+                  name="tipo-entrega"
+                  value="estandar"
+                  checked
+                />
+                Entrega Estándar </label
+              ><br />
+              <label for="entrega-express">
+                <input
+                  type="radio"
+                  id="entrega-express"
+                  name="tipo-entrega"
+                  value="express"
+                />
+                Entrega Express
+              </label>
+            </fieldset>
+
+            <button type="submit" id="iniciar-compra">Iniciar Compra</button>
+            <button type="button" id="limpiar-campos">Limpiar Campos</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+  </body>
+</html>

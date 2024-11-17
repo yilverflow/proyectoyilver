@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="muebles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Listado de Productos</h1>
+    </header>
+
+    <section class="filtros">
+      <label for="filtro-material">Filtrar por material:</label>
+      <select id="filtro-material">
+        <option value="">Todos</option>
+        <option value="madera">Madera</option>
+        <option value="metal">Metal</option>
+        <option value="plastico">Plástico</option>
+      </select>
+
+      <label for="filtro-cantidad">Filtrar por cantidad mayor a:</label>
+      <input type="number" id="filtro-cantidad" value="10" min="1" />
+
+      <button onclick="filtrarProductos()">Filtrar</button>
+      <button onclick="limpiarFiltros()">Limpiar Filtros</button>
+    </section>
+
+    <section id="productos" class="productos">
+      <h2>Productos Disponibles</h2>
+    </section>
+
+    <section id="ver-detalle" class="ver-detalle">
+      <h2>Detalle del Producto</h2>
+      <div id="detalle-producto"></div>
+      <label for="cantidad">Cantidad:</label>
+      <input type="number" id="cantidad" min="1" value="1" />
+      <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+    </section>
+    <div id="mensaje-exito" style="display: none; color: green"></div>
+
+    <nav class="barra-navegacion">
+      <button onclick="cancelarCompra()">Cancelar Compra</button>
+      <button onclick="completarCompra()">Completar Compra</button>
+    </nav>
+
+    <script src="data.js"></script>
+  </body>
+</html>

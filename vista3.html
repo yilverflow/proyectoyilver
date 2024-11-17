@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vista Carrito de Compras</title>
+    <link rel="stylesheet" href="muebles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Muebles de Oficina</h1>
+      <img src="imagen de oficina para header.jpg" alt="Imagen de oficina" />
+    </header>
+
+    <button onclick="window.location.href='vista2.html'">
+      Continuar Comprando
+    </button>
+    <button onclick="window.location.href='index.html'">Cancelar Compra</button>
+
+    <header>
+      <h1>Resumen de la Compra</h1>
+    </header>
+
+    <div class="pedido-container">
+      <section class="tabla-productos">
+        <table id="tablaProductos">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="carritoLista"></tbody>
+        </table>
+      </section>
+
+      <aside class="resumen-compra">
+        <div class="total">
+          <p>Total de productos: <span id="totalProductos">0</span></p>
+          <p>Subtotal: <span id="subtotal">0</span></p>
+          <p>Cargo por domicilio: <span id="cargoDomicilio">0</span></p>
+          <p>Total de la compra: <strong id="totalCompra">0</strong></p>
+        </div>
+
+        <h3>Datos de la Tarjeta</h3>
+        <form id="formTarjeta">
+          <label for="numeroTarjeta">Número de Tarjeta:</label>
+          <input
+            type="tel"
+            id="numeroTarjeta"
+            maxlength="16"
+            pattern="[0-9]{16}"
+            required
+          />
+
+          <label for="nombreTitular">Nombre del Titular:</label>
+          <input type="text" id="nombreTitular" required />
+
+          <label for="fechaExpiracion">Fecha de Expiración (MM/AA):</label>
+          <input
+            type="text"
+            id="fechaExpiracion"
+            maxlength="5"
+            placeholder="MM/AA"
+            pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+            required
+          />
+
+          <label for="cvv">CVV:</label>
+          <div class="cvv-container">
+            <input
+              type="password"
+              id="cvv"
+              maxlength="3"
+              pattern="[0-9]{3}"
+              required
+            />
+            <button type="button" id="toggleCVV" onclick="toggleCVV()">
+              👁️
+            </button>
+          </div>
+
+          <label for="paisEmision">País de emisión:</label>
+          <select id="paisEmision" required>
+            <option value="USA">Estados Unidos</option>
+            <option value="ESP">España</option>
+            <option value="MEX">México</option>
+            <option value="ARG">Argentina</option>
+            <option value="BRA">Brasil</option>
+            <option value="COL">Colombia</option>
+            <option value="CHL">Chile</option>
+            <option value="PER">Perú</option>
+            <option value="VEN">Venezuela</option>
+            <option value="GBR">Reino Unido</option>
+          </select>
+
+          <label for="tipoTarjeta">Tipo de tarjeta:</label>
+          <select id="tipoTarjeta" required>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+            <option value="prepagada">Prepagada</option>
+          </select>
+
+          <button
+            type="button"
+            class="limpiar-campos-btn"
+            onclick="limpiarCampos()"
+          >
+            Limpiar Campos
+          </button>
+          <button
+            type="button"
+            class="completar-compra-btn"
+            id="confirmarCompraBtn"
+            onclick="validarYCompletarCompra()"
+          >
+            Ejecutar Compra
+          </button>
+        </form>
+      </aside>
+    </div>
+
+    <script src="data.js"></script>
+  </body>
+</html>
